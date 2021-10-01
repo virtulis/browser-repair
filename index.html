@@ -3,9 +3,11 @@
 	<head>
 		<title>Browser.Repair</title>
 		<meta charset="utf-8">
+		<link href="normalize.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>
-
+    <div class="main">
 		<h1>Browser.Repair</h1>
 
 		<h2>Is it broken?</h2>
@@ -19,8 +21,34 @@
 			</div>
 		</div>
 
+		<h3>What’s up?</h3>
+		<ul>
+			<li>Most websites on the Internet use TLS (also know as SSL) to secure your connection and data. This uses “certificates” that are signed by trusted authorities. The list of authorities is stored on your computer and usually updated as part of the operating system.</li>
+			<li>The most popular TLS authority right now is Let’s Encrypt, who issues certificates for free with the mission to secure the Internet. On old devices Let’s Encrypt itself relies on an even older authority to verify their trustworthiness. This authority’s certificate expired in September 2021.</li>
+			<li>As a result, users of old devices will see a warning about an “untrusted connection” on a large number of websites. It’s not recommended to ignore this warning - rather, you should fix the underlying problem.</li>
+		</ul>
+
+		<h3>How do I fix it?</h3>
+		<p>The best solution is to install a newer version of your operating system and browser. If that’s not possible, select your platform below for instructions:</p>
+
+		<ul>
+			<li>Apple Mac OS</li>
+			<li>Windows XP</li>
+			<li>iPhone</li>
+			<li>Android (Samsung, HTC, Motorola and others)</li>
+			<li>Other platforms</li>
+		</ul>
+
+		<h2>Instructions for Windows XP:</h2>
+
+		<p>Step 1: download the certificate file. It’s called “ISRG Root X1” - ISRG is the organization behind Let’s Encrypt.</p>
+
+
+		<p>If this didn’t work, please email <a href="mailto:help@browser.repair">help@browser.repair</a> and we’ll try to figure it out when we can. Please remember this is a volunteer effort.</p>
+
 		<a href="/certs/ISG_Root_X1.der">Download (DER format)</a>
 		<a href="/certs/ISG_Root_X1.pem">Download (PEM format)</a>
+	</div>
 
 		<script type="text/javascript">
 
