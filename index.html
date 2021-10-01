@@ -24,6 +24,8 @@
 
 		<script type="text/javascript">
 
+			var result = null;
+
 			function setCheckerStatus(cls, header, text) {
 				document.getElementById('checker').className = 'checker checker-' + cls;
 				document.getElementById('checker_header').innerHTML = header;
@@ -35,18 +37,28 @@
 				'Checking if your browser can handle certicates properly, it shouldn\'t take long'
 			);
 
-			setTimeout(function () {
-				if (Math.random() > 0.5) setCheckerStatus(
-					'ok',
-					'No, it\'s working!',
-					'It looks like you are not affected by this particular problem. We still recommend to update your OS regularly!'
-				);
-				else setCheckerStatus(
+			function fail() {
+				result = false;
+				setCheckerStatus(
 					'fail',
 					'Yes, it\'s broken!',
 					'Your device will have major problems connecting to websites. Read the instructions below on how to fix it.'
 				);
+			}
+
+			setTimeout(function () {
+				if (result === null) setCheckerStatus(
+					'fail',
+					'It\'s probably broken!',
+					'The check never finished which is usually not a good sign. Try following the directions below.'
+				);
 			}, 3000);
+
+			var script = document.createElement('script');
+			script.src = 'https://' + location.hostname + '/check.js';
+			script.onerror = fail;
+			window.onerror = fail;
+			document.body.appendChild(script);
 
 		</script>
 
