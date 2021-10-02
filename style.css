@@ -36,7 +36,7 @@ body {
 }
 
 .main {
-    padding: 50px 0;
+    padding: 50px 0 0;
 }
 
 .block-wrapper {
@@ -127,7 +127,15 @@ small {
     line-height: 21px;
 }
 
+.instructions {
+    padding: 0 0 50px;
+}
+
 .instructions__pictures {
+    margin: 0 0 60px;
+}
+
+.instructions__pictures-wrapper {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -135,14 +143,39 @@ small {
 }
 
 .picture {
-    margin: 10px 10px 0 0;
+    margin: 20px 40px 0 0;
+    border: 1px solid #747474;
+    width: 100%;
 }
+
+.picture:nth-child(1),
+.picture:nth-child(2),
+.picture:nth-child(3),
+.picture:nth-child(4) {
+    width: calc(100% / 2 - 20px);
+}
+
+.picture:last-child,
+.picture:nth-child(2),
+.picture:nth-child(4),
+.picture:nth-child(5) {
+    margin: 20px 0 0 0;
+}
+
 
 .picture__pic {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .picture__caption {
     font-size: 12px;
     line-height: 14px;
+}
+
+.footer {
+    padding: 20px 60px 30px;
 }
