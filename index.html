@@ -13,44 +13,53 @@
 		<span class="header__date">01.10.2021</span>
 	</div>
     <div class="main">
-		<h2>Is it broken?</h2>
-		<div id="checker" class="checker checker-unknown">
-			<h3 id="checker_header">
-				Unknown.
-			</h3>
-			<div id="checker_text">
-				You seem to have JavaScript disabled.
-				<a href="https://secure.browser.repair">Click here to check manually</a>. If you get an error, click “Back” and read on.
+
+		<div class="block-wrapper">
+			<div class="checker-block">
+				<div class="left">
+					<h2>Is the internet broken?</h2>
+					<div id="checker" class="checker checker-unknown">
+						<h3 class="checker__status" id="checker__status">
+							Unknown.
+						</h3>
+						<div class="checker__text" id="checker__text">
+							You seem to have JavaScript disabled.
+							<a href="https://secure.browser.repair">Click here to check manually</a>. If you get an error, click “Back” and read on.
+						</div>
+					</div>
+
+					<div class="how-to-fix">
+						<h2>How do i fix it?</h2>
+						<p>The best solution is to install a newer version of your operating system and browser. If that’s not possible, select your platform below for instructions:</p>
+						<div class="how-to-fix__buttons">
+							<button class="button">Appple Mac OS</button>
+							<button class="button">Windows XP</button>
+							<button class="button">Iphone</button>
+							<button class="button button--with-small">Android <br /><small>(Samsung, HTC, Motorola and others)</small></button>
+							<button class="button">Other platforms</button>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="right__text">
+						<h2>What’s up?</h2>
+						<p>Most websites on the Internet use TLS (also know as SSL) to secure your connection and data. This uses “certificates” that are signed by trusted authorities. The list of authorities is stored on your computer and usually updated as part of the operating system.</p>
+						<p>The most popular TLS authority right now is Let’s Encrypt, who issues certificates for free with the mission to secure the Internet.  On old devices Let’s Encrypt itself relies on an even older authority to verify their trustworthiness. This authority’s certificate expired in September 2021.</p>
+						<p>As a result, users of old devices will see a warning about an “untrusted connection” on a large number of websites. It’s not recommended to ignore this warning — rather, you should fix the underlying problem.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<h3>What’s up?</h3>
-		<ul>
-			<li>Most websites on the Internet use TLS (also know as SSL) to secure your connection and data. This uses “certificates” that are signed by trusted authorities. The list of authorities is stored on your computer and usually updated as part of the operating system.</li>
-			<li>The most popular TLS authority right now is Let’s Encrypt, who issues certificates for free with the mission to secure the Internet. On old devices Let’s Encrypt itself relies on an even older authority to verify their trustworthiness. This authority’s certificate expired in September 2021.</li>
-			<li>As a result, users of old devices will see a warning about an “untrusted connection” on a large number of websites. It’s not recommended to ignore this warning - rather, you should fix the underlying problem.</li>
-		</ul>
-
-		<h3>How do I fix it?</h3>
-		<p>The best solution is to install a newer version of your operating system and browser. If that’s not possible, select your platform below for instructions:</p>
-
-		<ul>
-			<li>Apple Mac OS</li>
-			<li>Windows XP</li>
-			<li>iPhone</li>
-			<li>Android (Samsung, HTC, Motorola and others)</li>
-			<li>Other platforms</li>
-		</ul>
-
-		<h2>Instructions for Windows XP:</h2>
-
-		<p>Step 1: download the certificate file. It’s called “ISRG Root X1” - ISRG is the organization behind Let’s Encrypt.</p>
+        <div class="block-wrapper">
+			<div class="instructions">
+				<h2>Instructions</h2>
+			</div>
+		</div>
 
 
-		<p>If this didn’t work, please email <a href="mailto:help@browser.repair">help@browser.repair</a> and we’ll try to figure it out when we can. Please remember this is a volunteer effort.</p>
-
-		<a href="/certs/ISRG_Root_X1.der">Download (DER format)</a>
-		<a href="/certs/ISRG_Root_X1.pem">Download (PEM format)</a>
+		<!--<a href="/certs/ISRG_Root_X1.der">Download (DER format)</a>
+		<a href="/certs/ISRG_Root_X1.pem">Download (PEM format)</a>-->
 	</div>
 
 		<script type="text/javascript">
@@ -59,8 +68,8 @@
 
 			function setCheckerStatus(cls, header, text) {
 				document.getElementById('checker').className = 'checker checker-' + cls;
-				document.getElementById('checker_header').innerHTML = header;
-				document.getElementById('checker_text').innerHTML = text;
+				document.getElementById('checker__status').innerHTML = header;
+				document.getElementById('checker__text').innerHTML = text;
 			}
 			setCheckerStatus(
 				'checking',
@@ -72,7 +81,7 @@
 				result = false;
 				setCheckerStatus(
 					'fail',
-					'Yes, it\'s broken!',
+					'Yes',
 					'Your device will have major problems connecting to websites. Read the instructions below on how to fix it.'
 				);
 			}
@@ -80,7 +89,7 @@
 			setTimeout(function () {
 				if (result === null) setCheckerStatus(
 					'fail',
-					'It\'s probably broken!',
+					'Unknown',
 					'The check never finished which is usually not a good sign. Try following the directions below.'
 				);
 			}, 3000);
