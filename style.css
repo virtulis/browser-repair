@@ -72,7 +72,7 @@ body {
     line-height: 40px;
     text-align: center;
     color: #fff;
-    background: #EF4F2C;
+    background: #BBBB11;
     padding: 20px 0;
     display: block;
     width: 30%;
@@ -83,6 +83,20 @@ body {
     width: 70%;
     font-size: 18px;
     line-height: 21px;
+    color: #BBBB11;
+}
+
+.checker--ok .checker__status {
+    background: #4FB02C;
+}
+.checker--ok .checker__text {
+    color: #4FB02C;
+}
+
+.checker--fail .checker__status {
+    background: #EF4F2C;
+}
+.checker--fail .checker__text {
     color: #EF4F2C;
 }
 
@@ -233,7 +247,7 @@ small {
     .picture:nth-child(5) {
         margin: 0 0 20px;
     }
-    
+
     .picture__caption {
         position: absolute;
     }
